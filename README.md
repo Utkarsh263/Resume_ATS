@@ -14,11 +14,6 @@
 
 ---
 
-## 📸 Screenshots
-
-> _Add your app screenshots here_
-
----
 
 ## ✨ Features
 
@@ -30,70 +25,6 @@
 - 📑 **PDF Report Export** — 4-section WeasyPrint PDF: Score Summary · Skill Validation · JD Match · Recommendations + Checklist
 - 🔐 **Auth & History** — Supabase JWT auth (HS256 + RS256/ES256 via JWKS), per-user analysis history, delete support
 - 🌐 **Streamlit Frontend** — Clean UI with file upload, JD input, score display, and PDF download
-
----
-
-## 🏗️ Project Structure
-
-```
-AI-RESUME-SCORER/
-│
-├── backend/
-│   ├── api/
-│   │   ├── auth.py               # JWT verification (HS256 + asymmetric via JWKS)
-│   │   └── routes.py             # FastAPI endpoints
-│   │
-│   ├── core/
-│   │   └── config.py             # Env vars, scoring weights, model config
-│   │
-│   ├── database/
-│   │   └── supabase_db.py        # Async Supabase REST client (save/get/delete)
-│   │
-│   ├── models/
-│   │   └── schemas.py            # Pydantic models (AnalysisResponse, ComponentScores, etc.)
-│   │
-│   ├── services/
-│   │   ├── ats_scorer.py         # 5-component weighted scoring engine
-│   │   ├── feedback_engine.py    # Issue detection & severity classification
-│   │   ├── groq_parser.py        # LLaMA 3.3 70B resume + JD parser with JSON retry
-│   │   ├── jd_matcher.py         # Semantic + fuzzy JD matching & skills gap
-│   │   ├── pdf_export.py         # WeasyPrint multi-section PDF merger
-│   │   ├── recommendation_engine.py  # Actionable fix generation
-│   │   ├── report_generator.py   # Jinja2 HTML → context builder for PDF
-│   │   ├── resume_analyzer.py    # Full pipeline orchestrator
-│   │   └── resume_parser.py      # File validation, MIME detection, text extraction
-│   │
-│   ├── templates/                # Jinja2 HTML templates for PDF sections
-│   │   ├── summary.html          # Report 1 — Score overview & breakdown
-│   │   ├── action_items.html     # Report 2 — Skill validation & ATS compat
-│   │   ├── quick_actions.html    # Report 3 — JD match analysis
-│   │   └── jd_comparison.html   # Report 4 — Recommendations & checklist
-│   │
-│   ├── utils/
-│   ├── logs/
-│   └── main.py                   # FastAPI app entrypoint, model preloading
-│
-├── frontend/
-│   ├── .streamlit/
-│   │   ├── config.toml
-│   │   └── secrets.toml          # Streamlit secrets (gitignored)
-│   │
-│   ├── assets/
-│   ├── components/               # Reusable Streamlit UI components
-│   │
-│   ├── services/
-│   │   ├── api_client.py         # FastAPI backend HTTP client
-│   │   └── supabase_client.py    # Frontend Supabase auth client
-│   │
-│   ├── views/                    # Page views
-│   └── streamlit_app.py          # Main Streamlit entrypoint
-│
-├── jupyter notebooks/            # Experimentation & prototyping
-├── .env                          # Environment variables (gitignored)
-├── .gitignore
-├── requirements.txt
-└── README.md
-```
 
 ---
 
@@ -169,7 +100,7 @@ brew install libmagic pango cairo gdk-pixbuf
 ### 1. Clone & Install
 
 ```bash
-git clone https://github.com/yourusername/ai-resume-scorer.git
+git clone https://github.com/Utkarsh263/ai-resume-scorer.git
 cd ai-resume-scorer
 
 python -m venv venv
